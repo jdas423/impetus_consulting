@@ -1,0 +1,15 @@
+<div class="w-full max-w-[1400px] flex flex-col justify-center">
+    <div class="w-full text-center mt-[30px] mb-[20px] text-[25px]">
+        Missions
+    </div>
+    <div class="w-full flex justify-center">
+        <div class="pl-[20px]">
+            <app-mission-svg></app-mission-svg>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            @for(num of missionCardElementsInd;track num;){
+                <app-mission-card></app-mission-card>
+            }
+        </div>
+    </div>
+</div>

@@ -5,11 +5,13 @@ import { ConsultantImgComponent } from '../components/consultantImg/consultant-i
 import { BackgroundColorDirective } from '../../directives/backgroundColor/background-color.directive';
 import { AboutUsComponent } from '../../aboutUsFold/about-us/about-us.component';
 import { FontColorDirective } from '../../directives/fontColor/font-color.directive';
+import { MissionComponent } from '../../missionFold/mission/mission.component';
+import { VisionComponent } from '../../visionFold/vision/vision.component';
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [NavbarComponent,HomePageComponent,ConsultantImgComponent,BackgroundColorDirective,
-    AboutUsComponent, FontColorDirective
+    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
