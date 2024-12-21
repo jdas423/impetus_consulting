@@ -1,4 +1,4 @@
-<nav appBackgroundColor class="w-full h-[10%]">
+<nav class="w-full max-w-[1400px] h-[100%] ">
    <div class="flex justify-between h-full items-center">
        <div class="ml-[80px] text-[25px]">
            <h1>{{"Impetus Consulting" | uppercase }}</h1>
@@ -6,7 +6,7 @@
        <div class="mr-[80px]">
           <ul class="flex">
              <li *ngFor="let listItem of listItems" class="list-none cursor-pointer mr-5">
-                <a href="#">
+                <a href="#" class="text-[18px]">
                     {{listItem | titlecase}}
                 </a>
             </li>

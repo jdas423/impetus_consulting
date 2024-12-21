@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FontColorDirective } from '../../directives/fontColor/font-color.directive';
-import { BackgroundColorDirective } from '../../directives/backgroundColor/background-color.directive';
+import { FontColorDirective } from '../../../../directives/fontColor/font-color.directive';
+import { BackgroundColorDirective } from '../../../../directives/backgroundColor/background-color.directive';
 @Component({
   selector: 'app-home-page',
   standalone: true,
