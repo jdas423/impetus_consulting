@@ -1,0 +1,19 @@
+.border-1{
+    border: none;
+    border-bottom: 2px solid #058438bd;
+    border-right: 2px solid #058438bd;
+}
+
+.border-2{
+    border: none;
+    border-bottom: 2px solid #058438bd;
+}
+
+.border-3{
+    border: none;
+    border-right: 2px solid #058438bd;
+}
+
+.border-4{
+   border: none;
+}

@@ -11,13 +11,16 @@ import { ValuesComponent } from '../../valuesFold/values/values.component';
 import { AboutUsContentService } from '../../aboutUsFold/services/aboutUsContent/about-us-content.service';
 import { visionContentService } from '../../visionFold/services/vision-content.service';
 import { missionContentService } from '../../missionFold/services/mission.service';
+import { valuesContentService } from '../../valuesFold/services/values.service';
+import { ServicesContentService } from '../../servicesFold/ang-services/ang-services.service';
+import { ServicesComponent } from '../../servicesFold/services/services.component';
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [NavbarComponent,HomePageComponent,ConsultantImgComponent,BackgroundColorDirective,
-    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent, ValuesComponent
+    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent, ValuesComponent,ServicesComponent
   ],
-  providers:[AboutUsContentService,visionContentService,missionContentService],
+  providers:[AboutUsContentService,visionContentService,missionContentService,valuesContentService,ServicesContentService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -32,7 +35,15 @@ export class HomeComponent implements OnInit {
    public missionHeading:string="";
    public missionCardContent:Array<string>=[];
    public missionCardNo:number=0;
-    constructor(private aboutUs:AboutUsContentService,private vision:visionContentService,private mission:missionContentService){}
+   public valuesCardHeading:Array<string>=[];
+   public valuesHeading:string="";
+   public valuesCardContent:Array<string>=[];
+   public valuesCardNo:number=0;
+   public servicesCardHeading:Array<string>=[];
+   public servicesHeading:string="";
+   public servicesCardContent:Array<string>=[];
+   public servicesCardNo:number=0;
+    constructor(private aboutUs:AboutUsContentService,private vision:visionContentService,private mission:missionContentService,private values:valuesContentService,private services:ServicesContentService){}
     ngOnInit(): void {
        this.aboutUsheading=this.aboutUs.loadAboutHeading();
        this.aboutUsBody=this.aboutUs.loadAboutBody();
@@ -44,5 +55,13 @@ export class HomeComponent implements OnInit {
        this.missionHeading=this.mission.loadMissionHeading()
        this.missionCardHeading=this.mission.loadMissionContentHeadings()
        this.missionCardContent=this.mission.loadMissionContent()
+       this.valuesCardNo=this.values.loadvaluesNumber()
+       this.valuesHeading=this.values.loadvaluesHeading()
+       this.valuesCardHeading=this.values.loadvaluesContentHeadings()
+       this.valuesCardContent=this.values.loadvaluesContent()
+       this.servicesCardNo=this.services.loadServicesNumber()
+       this.servicesHeading=this.services.loadServicesHeading()
+       this.servicesCardHeading=this.services.loadServicesContentHeadings()
+       this.servicesCardContent=this.services.loadServicesContent()
     }
 }

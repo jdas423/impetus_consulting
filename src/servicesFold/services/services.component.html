@@ -1,0 +1,10 @@
+<div class="w-full max-w-[1400px] flex flex-col justify-center items-center pb-[20px] ">
+    <div class="text-center text-[25px] pt-[20px] pb-[20px]">
+         {{servicesHeading}}
+    </div>
+    <div class="flex justify-center items-center flex-wrap flex-row">
+        @for(heading of servicesCardHeadings;let idx=$index;track heading){
+           <app-service-card [heading]="heading" [body]="servicesCardContent[idx]" class="rounded-[200px] w-[310px] h-[300px] border-white border-[5px] border-solid m-[30px] bg-img"></app-service-card>
+        }
+    </div>
+</div>

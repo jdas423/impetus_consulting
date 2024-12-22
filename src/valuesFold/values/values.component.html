@@ -1,8 +1,10 @@
-<div class="w-full max-w-[1400px] flex flex-col justify-center items-center">
-    <div>
-         Our core Values
+<div class="w-full max-w-[1400px] flex flex-col justify-center items-center pb-[20px]">
+    <div class="text-center text-[25px] text-[#058438bd] pt-[20px] pb-[20px]">
+         {{valuesHeading}}
     </div>
-    <div>
-
+    <div class="grid w-[70%]" [ngClass]="classCol+' '+classRow">
+         @for(heading of valuesCardHeadings;let idx=$index;track heading;){
+            <app-values-card [heading]="heading" [body]="valuesCardContent[idx]" [ngClass]="idx===valuesCardHeadings.length-2 ?'border-3': (idx===valuesCardHeadings.length-1 ? 'border-4':(idx%2===0 ? 'border-1' : 'border-2'))"></app-values-card>
+         }
     </div>
 </div>
