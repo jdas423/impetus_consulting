@@ -11,11 +11,12 @@ import { BackgroundColorDirective } from '../../directives/backgroundColor/backg
 })
 export class MissionComponent implements OnInit {
   constructor(){}
-  @Input() public missionCardNo:number=3;
-  public missionCardElementsInd:Array<number>=[];
+  @Input() public missionCardNo:number=0;
+  @Input() public missionHeading:string="";
+  @Input() public missionCardHeading:Array<string>=[];
+  @Input() public missionCardContent:Array<string>=[];
+
   ngOnInit(){
-      for(let num=0;num<this.missionCardNo;num++){
-        this.missionCardElementsInd.push(num)
-      }
+     
   }
 }

@@ -10,12 +10,12 @@ import { FontColorDirective } from '../../directives/fontColor/font-color.direct
 })
 export class VisionComponent implements OnInit {
    constructor(){}
-   @Input() public visionCardNo:number=6
-   public visionCardElementsInd:Array<number> =[]
+   @Input() public visionCardNo:number=0
+   @Input() public visionHeading:string=""
+   @Input() public visionCardHeading:Array<string>=[]
+   @Input() public visionCardContent:Array<string>=[]
 
    ngOnInit(){
-      for(let num=0;num<this.visionCardNo;num++){
-          this.visionCardElementsInd.push(num)
-      }
+   
    }
 }

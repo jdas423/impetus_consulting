@@ -6,13 +6,16 @@
   </div>
 </div>
 <div appBackgroundColor class="w-[100%] flex justify-center mt-[-150px]">
-   <app-about-us></app-about-us>
+   <app-about-us [aboutUsHeading]="aboutUsheading" [aboutUsBody]="aboutUsBody"></app-about-us>
 </div>
 <div class="w-[100%] flex justify-center">
-  <app-vision></app-vision>
+  <app-vision [visionHeading]="visionHeading" [visionCardNo]="visionCardNo" [visionCardContent]="visionCardContent" [visionCardHeading]="visionCardHeading"></app-vision>
 </div>
 <div  appBackgroundColor class="w-[100%] flex justify-center">
-   <app-mission class="w-full flex justify-center"></app-mission>
+   <app-mission class="w-full flex justify-center" [missionCardNo]="missionCardNo" [missionHeading]="missionHeading" [missionCardHeading]="missionCardHeading" [missionCardContent]="missionCardContent"></app-mission>
+</div>
+<div class="w-[100%] flex justify-center">
+   <app-values class="w-full flex justify-center"></app-values>
 </div>
 
 

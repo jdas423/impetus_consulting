@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { BackgroundColorDirective } from '../../../directives/backgroundColor/background-color.directive';
 
 @Component({
@@ -8,6 +8,13 @@ import { BackgroundColorDirective } from '../../../directives/backgroundColor/ba
   templateUrl: './vision-card.component.html',
   styleUrl: './vision-card.component.css'
 })
-export class VisionCardComponent {
+export class VisionCardComponent implements OnInit {
+  constructor(){}
+  @Input() public visionCardHeading:string="Lorem"
+  @Input() public visionCardBody:string="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet voluptatem rem, possimus pariatur modi magni aspernatur perferendis voluptates quo a neque maiores eligendi animi."
 
+  ngOnInit(){
+    console.log(this.visionCardBody)
+  }
 }
+

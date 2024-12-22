@@ -1,8 +1,8 @@
 <div class="flex flex-col items-center w-[100%] max-w-[1400px]">
-    <h1 style="color:#058438bd" class="text-[25px] mt-[30px] mb-[20px]">Visions</h1> 
+    <h1 style="color:#058438bd" class="text-[25px] mt-[30px] mb-[20px]">{{visionHeading}}</h1> 
     <div class="flex justify-center flex-wrap">
-        @for(num of visionCardElementsInd;track num){
-            <app-vision-card class="w-[370px]"></app-vision-card>
+        @for(heading of visionCardHeading;track heading;let idx=$index){
+            <app-vision-card class="w-[370px]" [visionCardHeading]="heading" [visionCardBody]="visionCardContent[idx]"></app-vision-card>
           }
     </div>
 </div>
