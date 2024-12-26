@@ -4,5 +4,6 @@
     "contentHeading":["heading1","heading2","Heading3"],
     "content":["Lorem ipsum dolor sit amet consectetur adipisicing elit.",
         "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit."]
+    "Lorem ipsum dolor sit amet consectetur adipisicing elit."],
+    "imgAdd":["bg-img.jpg","bg-img.jpg","bg.jpg"]
 }

@@ -6,6 +6,7 @@ interface Data{
   number:number;
   contentHeading:Array<string>;
   content:Array<string>;
+  imgAdd:Array<string>;
 }
 
 @Injectable({
@@ -16,7 +17,8 @@ export class ServicesContentService {
   public ServicesNumber:number=0
   public ServicesContentHeading:Array<string>=[]
   public ServicesContent:Array<string>=[]
-  public data:Data={"heading":"","number":0,"contentHeading":[],"content":[]};
+  public imgAdd:Array<string>=[]
+  public data:Data={"heading":"","number":0,"contentHeading":[],"content":[],"imgAdd":[]};
   constructor(private http:HttpClient) { 
     this.loadFile()
   }
@@ -30,6 +32,7 @@ export class ServicesContentService {
         this.ServicesNumber=this.data.number;
         this.ServicesContentHeading=this.data.contentHeading;
         this.ServicesContent=this.data.content;
+        this.imgAdd=this.data.imgAdd;
       },
       error: (err) => {
         console.error('Error reading the file:', err);
@@ -53,4 +56,9 @@ export class ServicesContentService {
   loadServicesContent(){
     return this.ServicesContent;
   }
+
+  loadImgAddContent(){
+    return this.imgAdd;
+  }
+
 }

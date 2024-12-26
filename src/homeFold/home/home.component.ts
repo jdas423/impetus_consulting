@@ -14,11 +14,13 @@ import { missionContentService } from '../../missionFold/services/mission.servic
 import { valuesContentService } from '../../valuesFold/services/values.service';
 import { ServicesContentService } from '../../servicesFold/ang-services/ang-services.service';
 import { ServicesComponent } from '../../servicesFold/services/services.component';
+import { ContactContentService } from '../../contactFold/services/contact-content.service';
+import { ContactComponent } from '../../contactFold/contact/contact.component';
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [NavbarComponent,HomePageComponent,ConsultantImgComponent,BackgroundColorDirective,
-    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent, ValuesComponent,ServicesComponent
+    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent, ValuesComponent,ServicesComponent,ContactComponent
   ],
   providers:[AboutUsContentService,visionContentService,missionContentService,valuesContentService,ServicesContentService],
   templateUrl: './home.component.html',
@@ -42,8 +44,10 @@ export class HomeComponent implements OnInit {
    public servicesCardHeading:Array<string>=[];
    public servicesHeading:string="";
    public servicesCardContent:Array<string>=[];
-   public servicesCardNo:number=0;
-    constructor(private aboutUs:AboutUsContentService,private vision:visionContentService,private mission:missionContentService,private values:valuesContentService,private services:ServicesContentService){}
+   public servicesCardNo: number = 0;
+   public imgAdd:Array<string>=[];
+   public contactInfo:{"email":string,"phoneNumber":string,"location":string}={"email":"","phoneNumber":"","location":""}
+    constructor(private aboutUs:AboutUsContentService,private vision:visionContentService,private mission:missionContentService,private values:valuesContentService,private services:ServicesContentService,private contact:ContactContentService){}
     ngOnInit(): void {
        this.aboutUsheading=this.aboutUs.loadAboutHeading();
        this.aboutUsBody=this.aboutUs.loadAboutBody();
@@ -62,6 +66,8 @@ export class HomeComponent implements OnInit {
        this.servicesCardNo=this.services.loadServicesNumber()
        this.servicesHeading=this.services.loadServicesHeading()
        this.servicesCardHeading=this.services.loadServicesContentHeadings()
-       this.servicesCardContent=this.services.loadServicesContent()
+      this.servicesCardContent = this.services.loadServicesContent()
+      this.imgAdd=[...this.services.loadImgAddContent()];
+       this.contactInfo={...this.contact.loadContactInfo()}
     }
 }
