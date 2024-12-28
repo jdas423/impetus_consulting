@@ -6,7 +6,7 @@ import { FontColorDirective } from '../../directives/fontColor/font-color.direct
   standalone: true,
   imports: [VisionCardComponent,FontColorDirective],
   templateUrl: './vision.component.html',
-  styleUrl: './vision.component.css'
+  styleUrl: './vision.component.css',
 })
 export class VisionComponent implements OnInit {
    constructor(){}
@@ -14,7 +14,6 @@ export class VisionComponent implements OnInit {
    @Input() public visionHeading:string=""
    @Input() public visionCardHeading:Array<string>=[]
    @Input() public visionCardContent:Array<string>=[]
-
    ngOnInit(){
    
    }

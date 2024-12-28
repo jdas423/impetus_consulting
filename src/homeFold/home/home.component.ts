@@ -16,13 +16,15 @@ import { ServicesContentService } from '../../servicesFold/ang-services/ang-serv
 import { ServicesComponent } from '../../servicesFold/services/services.component';
 import { ContactContentService } from '../../contactFold/services/contact-content.service';
 import { ContactComponent } from '../../contactFold/contact/contact.component';
+import { TestimonialContentService } from '../../testimonialFold/services/testimonial-content.service';
+import { TestimonialComponent } from '../../testimonialFold/testimonial/testimonial.component';
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [NavbarComponent,HomePageComponent,ConsultantImgComponent,BackgroundColorDirective,
-    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent, ValuesComponent,ServicesComponent,ContactComponent
+    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent, ValuesComponent,ServicesComponent,ContactComponent,TestimonialComponent
   ],
-  providers:[AboutUsContentService,visionContentService,missionContentService,valuesContentService,ServicesContentService],
+  providers:[AboutUsContentService,visionContentService,missionContentService,valuesContentService,ServicesContentService,TestimonialContentService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -47,7 +49,11 @@ export class HomeComponent implements OnInit {
    public servicesCardNo: number = 0;
    public imgAdd:Array<string>=[];
    public contactInfo:{"email":string,"phoneNumber":string,"location":string}={"email":"","phoneNumber":"","location":""}
-    constructor(private aboutUs:AboutUsContentService,private vision:visionContentService,private mission:missionContentService,private values:valuesContentService,private services:ServicesContentService,private contact:ContactContentService){}
+   public testimonialHeading:string="";
+   public testimonialContent:Array<string>=[];
+   public testimonialNumber:number=0;
+   public testimonialName:Array<string>=[];
+    constructor(private aboutUs:AboutUsContentService,private vision:visionContentService,private mission:missionContentService,private values:valuesContentService,private services:ServicesContentService,private contact:ContactContentService,private testimonial:TestimonialContentService){}
     ngOnInit(): void {
        this.aboutUsheading=this.aboutUs.loadAboutHeading();
        this.aboutUsBody=this.aboutUs.loadAboutBody();
@@ -68,6 +74,10 @@ export class HomeComponent implements OnInit {
        this.servicesCardHeading=this.services.loadServicesContentHeadings()
       this.servicesCardContent = this.services.loadServicesContent()
       this.imgAdd=[...this.services.loadImgAddContent()];
-       this.contactInfo={...this.contact.loadContactInfo()}
+      this.contactInfo={...this.contact.loadContactInfo()}
+       this.testimonialHeading=this.testimonial.loadtestimonialHeading();
+       this.testimonialName=this.testimonial.loadtestimonialName();
+       this.testimonialContent=this.testimonial.loadtestimonialContent();
+       this.testimonialNumber=this.testimonial.loadtestimonialNumber()
     }
 }

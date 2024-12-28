@@ -5,8 +5,8 @@
        </div>
        <div class="mr-[80px]">
           <ul class="flex">
-             <li *ngFor="let listItem of listItems" class="list-none cursor-pointer mr-5">
-                <a href="#" class="text-[18px]">
+             <li *ngFor="let listItem of listItems;let ind=index;" class="list-none cursor-pointer mr-5">
+                <a href="#" class="text-[18px]" [id]="ind" (mouseenter)="mouseIn(ind)" (mouseleave)="mouseOut(ind)" [@inout]="in[ind]?'in':'out'">
                     {{listItem | titlecase}}
                 </a>
             </li>

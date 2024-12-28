@@ -14,5 +14,5 @@ export const HomeConfig: ApplicationConfig = {
         theme: {
             preset: Aura
         }
-    }), provideHttpClient()]
+    }), provideHttpClient(),provideAnimationsAsync()]
 };

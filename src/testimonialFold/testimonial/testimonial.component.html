@@ -1,0 +1,5 @@
+<div>
+    @for(contText of content;track $index;){
+        <app-testimonial-card [name]="name[$index]" [content]="contText"></app-testimonial-card>
+    }
+</div>
