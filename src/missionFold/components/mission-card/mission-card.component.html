@@ -1,9 +1,9 @@
 
-<div class="text-[#058438bd] p-[30px] m-[40px] text-center rounded-[2px] box-shd text-[18px] bg-white w-[500px] pt-[20px]">
-   <div class="text-[#058438bd] pb-[10px]">
+<div class="text-[#058438bd] p-[30px] m-[40px] text-center rounded-[2px] box-shd text-[18px] bg-white w-[500px] pt-[20px] obs opacity-0 scale-0"(mouseenter)="mouseIn()" (mouseleave)="mouseOut()" [@inout]="in?'in':'out'" [@zoomOut]="isVisible?'in':'void'">
+   <div class="pb-[10px]">
       {{heading | uppercase}}
    </div>
-   <div class="text-[#058438bd]">
+   <div>
       {{body}}
    </div>
  </div>

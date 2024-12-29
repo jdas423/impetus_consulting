@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, Output,EventEmitter} from '@angular/core';
 import { BackgroundColorDirective } from '../directives/backgroundColor/background-color.directive';
 import { UpperCasePipe, CommonModule,TitleCasePipe} from '@angular/common';
 import {trigger,state,style,animate,transition} from '@angular/animations';
@@ -30,12 +30,12 @@ export class NavbarComponent implements OnInit {
    constructor(){};
    public listItems:Array<string>=["About Us","Vision","Mission","Values","Services","Contact Us","Testimonials"];
    public in:Array<boolean>=[];
-
+   @Output() listItem=new EventEmitter<string>();
    ngOnInit(): void{
        for(let i=0;i<this.listItems.length;i++){
          this.in.push(false);
        }
-   }
+   }  
    
    mouseIn(ind:number){
      this.in[ind]=true;
@@ -43,5 +43,9 @@ export class NavbarComponent implements OnInit {
 
    mouseOut(ind:number){
     this.in[ind]=false;
-   }
+  }
+  
+  scrollToView(listItm:string) {
+    this.listItem.emit(listItm);
+  }
 }

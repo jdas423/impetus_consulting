@@ -1,4 +1,4 @@
-<div class="flex  flex-col justify-center items-center p-[20px] h-full w-full bg-[#05843860] rounded-[200px]">
-    <div class="pb-[10px] text-[white]">{{heading | uppercase}}</div>
-    <div class="text-center text-[white] font-extrabold">{{body}}</div>
+<div class="flex  flex-col justify-center items-center p-[20px] h-full w-full bg-[#05843860] rounded-[200px] text-[white] scale-0 obs opacity-0" (mouseenter)="mouseIn()" (mouseleave)="mouseOut()" [@inout]="in?'in':'out'" [@zoomOut]="isVisible?'in':'void'">
+    <div class="pb-[10px]">{{heading | uppercase}}</div>
+    <div class="text-center font-extrabold">{{body}}</div>
 </div>

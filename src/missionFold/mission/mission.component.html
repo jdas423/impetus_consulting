@@ -1,9 +1,9 @@
 <div class="w-full max-w-[1400px] flex flex-col justify-center">
-    <div class="w-full text-center mt-[30px] mb-[20px] text-[25px]">
+    <div class="w-full text-center mt-[30px] mb-[20px] text-[25px] text-[white] obs opacity-0 translate-y-[-100%]" [@flyFromTop]="isVisible?'in':'void'">
         Missions
     </div>
     <div class="w-full flex justify-center">
-        <div class="pl-[20px]">
+        <div class="pl-[20px] obs translate-x-[-100%]" [@flyFromLeft]="isVisible?'in':'void'">
             <app-mission-svg></app-mission-svg>
         </div>
         <div class="flex flex-col justify-center items-center">

@@ -1,4 +1,4 @@
-import { Component,Input,OnInit } from '@angular/core';
+import { AfterViewInit, Component,ElementRef,Input,OnInit } from '@angular/core';
 import { BackgroundColorDirective } from '../../../directives/backgroundColor/background-color.directive';
 import {trigger,state,style,animate,transition} from '@angular/animations';
 @Component({
@@ -30,15 +30,39 @@ import {trigger,state,style,animate,transition} from '@angular/animations';
       ),
       transition('in <=> out', [animate('0.3s')])
     ]),
+    trigger('zoomOut', [
+      state(
+        'in',
+        style({transform: 'scale(1)',opacity:'1'}),
+      ),
+      transition('void => *', [style({transform: 'scale(0)',opacity:'0'}), animate(800)]),
+    ]),
   ],
 })
-export class VisionCardComponent implements OnInit {
-  constructor(){}
+export class VisionCardComponent implements OnInit,AfterViewInit {
+  public isVisible:boolean=false
+  constructor(private elementRef:ElementRef){}
   @Input() public visionCardHeading:string="Lorem"
   @Input() public visionCardBody:string="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam amet voluptatem rem, possimus pariatur modi magni aspernatur perferendis voluptates quo a neque maiores eligendi animi."
   public in:boolean=false;
   ngOnInit(){
     console.log(this.visionCardBody)
+  }
+
+  ngAfterViewInit(): void {
+    const elements = this.elementRef.nativeElement.querySelectorAll('.obs');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            this.isVisible = true;
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    elements.forEach((el: HTMLElement) => observer.observe(el));
   }
  
   mouseIn(){

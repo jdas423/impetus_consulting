@@ -1,5 +1,10 @@
-<div>
-    @for(contText of content;track $index;){
-        <app-testimonial-card [name]="name[$index]" [content]="contText"></app-testimonial-card>
-    }
+<div class="max-w-[1400px] w-[100%] flex flex-col justify-between items-center mt-[15px]" >
+    <div class="text-[white] text-[25px] obs translate-y-[-100%] opacity-0" [@flyFromTop]="isVisible?'in':'void'">
+        {{heading}}
+    </div>
+    <div class="flex justify-center items-center w-[100%] flex-wrap mb-[40px]">
+        @for(contText of content;track $index;){
+            <app-testimonial-card  class="w-[30%]"  [name]="name[$index]" [content]="contText"></app-testimonial-card>
+        }
+    </div>
 </div>

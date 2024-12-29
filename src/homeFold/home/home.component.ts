@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,ElementRef,OnInit,ViewChild } from '@angular/core';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { HomePageComponent } from '../components/home-page/home-page/home-page.component';
 import { ConsultantImgComponent } from '../components/consultantImg/consultant-img/consultant-img.component';
@@ -18,15 +18,33 @@ import { ContactContentService } from '../../contactFold/services/contact-conten
 import { ContactComponent } from '../../contactFold/contact/contact.component';
 import { TestimonialContentService } from '../../testimonialFold/services/testimonial-content.service';
 import { TestimonialComponent } from '../../testimonialFold/testimonial/testimonial.component';
+import { FooterComponent } from '../../footerFold/footer/footer.component';
+import {trigger,state,style,animate,transition} from '@angular/animations';
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [NavbarComponent,HomePageComponent,ConsultantImgComponent,BackgroundColorDirective,
-    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent, ValuesComponent,ServicesComponent,ContactComponent,TestimonialComponent
+    AboutUsComponent, FontColorDirective, MissionComponent, VisionComponent, ValuesComponent,ServicesComponent,ContactComponent,TestimonialComponent,FooterComponent
   ],
   providers:[AboutUsContentService,visionContentService,missionContentService,valuesContentService,ServicesContentService,TestimonialContentService],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
+  animations: [
+    trigger('flyInOutLeft', [
+      state(
+        'in',
+        style({transform: 'translateX(0)'}),
+      ),
+      transition('void => *', [style({transform: 'translateX(-100%)'}), animate(800)]),
+    ]),
+    trigger('flyInOutRight', [
+      state(
+        'in',
+        style({transform: 'translateX(0)'}),
+      ),
+      transition('void => *', [style({transform: 'translateX(100%)'}), animate(800)]),
+    ]),
+  ]
 })
 export class HomeComponent implements OnInit {
    public aboutUsBody:string="";
@@ -53,7 +71,15 @@ export class HomeComponent implements OnInit {
    public testimonialContent:Array<string>=[];
    public testimonialNumber:number=0;
    public testimonialName:Array<string>=[];
+   @ViewChild("aboutUs") aboutUsEle!:ElementRef;
+   @ViewChild("vision") visionEle!:ElementRef;
+   @ViewChild("mission") missionEle!:ElementRef;
+   @ViewChild("values") valuesEle!:ElementRef;
+   @ViewChild("services") servicesEle!:ElementRef;
+   @ViewChild("contact") contactEle!:ElementRef;
+   @ViewChild("testimonial") testimonialEle!:ElementRef;
     constructor(private aboutUs:AboutUsContentService,private vision:visionContentService,private mission:missionContentService,private values:valuesContentService,private services:ServicesContentService,private contact:ContactContentService,private testimonial:TestimonialContentService){}
+   
     ngOnInit(): void {
        this.aboutUsheading=this.aboutUs.loadAboutHeading();
        this.aboutUsBody=this.aboutUs.loadAboutBody();
@@ -79,5 +105,44 @@ export class HomeComponent implements OnInit {
        this.testimonialName=this.testimonial.loadtestimonialName();
        this.testimonialContent=this.testimonial.loadtestimonialContent();
        this.testimonialNumber=this.testimonial.loadtestimonialNumber()
+  }
+  
+  scrollToView(evt:string) {
+    console.log(this.aboutUs)
+    if(evt==="About Us") {
+      setTimeout(() => {
+        this.aboutUsEle?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); 
     }
+    else if(evt==="Vision") {
+      setTimeout(() => {
+        this.visionEle?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); 
+    }
+    else if(evt==="Mission"){
+      setTimeout(() => {
+        this.missionEle?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); 
+    }
+    else if(evt==="Values") {
+      setTimeout(() => {
+        this.valuesEle?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); 
+    }
+    else if(evt==="Services") {
+      setTimeout(() => {
+        this.servicesEle?.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); 
+    }
+    else if(evt==="Contact Us") {
+      setTimeout(() => {
+        this.contactEle.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); 
+    }
+    else if(evt==="Testimonials") {
+      setTimeout(() => {
+        this.testimonialEle.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100); 
+    }
+  }
 }

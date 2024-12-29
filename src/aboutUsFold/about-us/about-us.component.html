@@ -1,6 +1,6 @@
 <div class="about-us max-w-[1400px] w-[100%] flex flex-col items-center text-[white]">
-    <h1 class="text-[25px] mt-[30px] mb-[20px]">{{aboutUsHeading}}</h1>
-    <section class="w-[70%] text-[18px] text-center mt-[10px] mb-[50px] max-w-[1200px]">
+    <h1 class="text-[25px] mt-[30px] mb-[20px] obs opacity-0 translate-y-[-100%]" [@flyFromTop]="isVisible?'in':'void'">{{aboutUsHeading}}</h1>
+    <section class="w-[70%] text-[18px] text-center mt-[10px] mb-[50px] max-w-[1200px] obs scale-0 opacity-0" [@zoomOut]="isVisible?'in':'void'">
         {{aboutUsBody}}
     </section>
 </div>

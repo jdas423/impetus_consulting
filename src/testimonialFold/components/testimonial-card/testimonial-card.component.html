@@ -1,1 +1,9 @@
-<p>testimonial-card works!</p>
+<div class="p-[20px] text-[#058438bd] m-[15px] bg-[white] flex rounded-[4px] scale-0 opacity-0 obs" (mouseenter)="mouseIn()" (mouseleave)="mouseOut()" [@inout]="in?'in':'out'" [@zoomOut]="isVisible?'in':'void'">
+    <div class="mr-[5px] mt-[-5px]">
+        <i class="fa-solid fa-quote-left"></i>
+    </div>
+    <div class="flex flex-col justify-center items-start">
+        <div>{{content}}</div>
+        <div class="mt-[10px]">{{name}}</div>
+    </div>
+</div>

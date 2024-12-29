@@ -1,30 +1,33 @@
-<app-navbar appBackgroundColor class="flex w-[100%] justify-center items-center h-[100px] fixed z-[10]"></app-navbar>
+<app-navbar (listItem)="scrollToView($event)" appBackgroundColor class="flex w-[100%] justify-center items-center h-[100px] fixed z-[10]"></app-navbar>
 <div class="w-[100%] flex justify-center">
   <div class="flex justify-between items-center  w-[100%] max-w-[1400px] overflow-hidden pt-[100px]">
-        <app-home-page class="max-w-[40%] pl-[100px] mb-[103px]"></app-home-page>
+        <app-home-page class="max-w-[40%] pl-[100px] mb-[103px]" ></app-home-page>
         <app-consultant-img class="mr-[-110px]"></app-consultant-img>
   </div>
 </div>
-<div appBackgroundColor class="w-[100%] flex justify-center mt-[-150px]">
+<div #aboutUs appBackgroundColor class="w-[100%] flex justify-center mt-[-150px]">
    <app-about-us [aboutUsHeading]="aboutUsheading" [aboutUsBody]="aboutUsBody"></app-about-us>
 </div>
-<div class="w-[100%] flex justify-center">
-  <app-vision [visionHeading]="visionHeading" [visionCardNo]="visionCardNo" [visionCardContent]="visionCardContent" [visionCardHeading]="visionCardHeading"></app-vision>
+<div #vision class="w-[100%] flex justify-center">
+  <app-vision  [visionHeading]="visionHeading" [visionCardNo]="visionCardNo" [visionCardContent]="visionCardContent" [visionCardHeading]="visionCardHeading"></app-vision>
 </div>
-<div  appBackgroundColor class="w-[100%] flex justify-center">
-   <app-mission class="w-full flex justify-center pb-[30px]" [missionCardNo]="missionCardNo" [missionHeading]="missionHeading" [missionCardHeading]="missionCardHeading" [missionCardContent]="missionCardContent"></app-mission>
+<div #mission appBackgroundColor class="w-[100%] flex justify-center">
+   <app-mission  class="w-full flex justify-center pb-[30px]" [missionCardNo]="missionCardNo" [missionHeading]="missionHeading" [missionCardHeading]="missionCardHeading" [missionCardContent]="missionCardContent"></app-mission>
 </div>
-<div class="w-[100%] flex justify-center">
+<div #values class="w-[100%] flex justify-center">
    <app-values class="w-full flex justify-center" [valuesCardNo]="valuesCardNo" [valuesHeading]="valuesHeading" [valuesCardHeadings]="valuesCardHeading" [valuesCardContent]="valuesCardContent"></app-values>
 </div>
-<div appBackgroundColor class="w-[100%] flex justify-center">
+<div #services appBackgroundColor class="w-[100%] flex justify-center">
    <app-services class="w-full flex justify-center" [servicesCardNo]="servicesCardNo" [servicesHeading]="servicesHeading" [servicesCardHeadings]="servicesCardHeading" [servicesCardContent]="servicesCardContent"  [imgAdd]="imgAdd"></app-services>
 </div>
-<div class="w-[100%] flex justify-center">
-   <app-contact  class="w-full flex justify-center" [email]="contactInfo['email']" [phoneNumber]="contactInfo['phoneNumber']" [location]="contactInfo['location']"></app-contact>
+<div #contact class="w-[100%] flex justify-center">
+   <app-contact class="w-full flex justify-center" [email]="contactInfo['email']" [phoneNumber]="contactInfo['phoneNumber']" [location]="contactInfo['location']"></app-contact>
 </div>
-<div class="w-[100%] flex justify-center">
+<div #testimonial appBackgroundColor class="w-[100%] flex justify-center">
    <app-testimonial class="w-full flex justify-center" [heading]="testimonialHeading" [testimonialNumber]="testimonialNumber" [name]="testimonialName" [content]="testimonialContent"> </app-testimonial>
+</div>
+<div #footer class="w-[100%] flex justify-center">
+   <app-footer></app-footer>
 </div>
 
 
